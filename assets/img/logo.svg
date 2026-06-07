@@ -6,26 +6,29 @@
       <stop offset="100%" stop-color="#27AE60" />
     </linearGradient>
     
-    <!-- Modern Tech Teal to Blue Gradient for the 'A' -->
-    <linearGradient id="tealGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0F4C5C" />
-      <stop offset="100%" stop-color="#259F9A" />
+    <!-- Modern Tech Blue/Teal Gradient -->
+    <linearGradient id="blueGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0b5a7a" />
+      <stop offset="100%" stop-color="#1e9fb4" />
     </linearGradient>
 
     <!-- Drop Shadow for 3D overlap effect -->
     <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
-      <feDropShadow dx="2" dy="2" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.4"/>
+      <feDropShadow dx="1.5" dy="1.5" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.5"/>
     </filter>
   </defs>
 
-  <!-- Letter A (Right Side, Deep Teal) -->
-  <path d="M 54,75 L 68,26 L 82,75 L 72,75 L 68,58 L 59,58 L 56,75 Z M 61,50 L 66,50 L 68,36 Z" fill="url(#tealGrad)" />
+  <!-- Letter B (Left Side, Blue Gradient) -->
+  <path d="M 14,70 L 14,30 L 33,30 C 40,30 44,33 44,39 C 44,44 40,47 35,48 C 41,49 46,53 46,60 C 46,67 41,70 33,70 Z M 22,37 L 22,45 L 31,45 C 34,45 36,43 36,41 C 36,39 34,37 31,37 Z M 22,54 L 22,63 L 33,63 C 36,63 38,61 38,58 C 38,55 36,54 33,54 Z" fill="url(#blueGrad)" />
 
-  <!-- Letter B (Left Side, Vibrant Green) -->
-  <path d="M 18,20 L 46,20 C 55,20 60,25 60,33 C 60,39 56,44 48,46 C 57,48 62,54 62,62 C 62,70 55,75 46,75 L 18,75 Z M 28,30 L 28,42 L 44,42 C 48,42 50,40 50,36 C 50,32 48,30 44,30 Z M 28,52 L 28,65 L 46,65 C 50,65 52,63 52,58 C 52,54 50,52 46,52 Z" fill="url(#greenGrad)" />
+  <!-- Number 2 (Middle, Blue/Teal Gradient) -->
+  <path d="M 34,44 C 34,38 38,34 43,34 C 48,34 52,37 52,42 C 52,47 49,50 45,54 L 38,61 L 53,61 L 53,67 L 34,67 L 34,59 L 42,51 C 45,48 46,46 46,44 C 46,42 45,40 43,40 C 41,40 39,42 39,44 Z" fill="url(#blueGrad)" opacity="0.9" />
 
-  <!-- Upward Dynamic Arrow (Slicing/Overlap, Green Gradient with drop shadow) -->
+  <!-- Letter A (Right Side, Green Gradient) -->
+  <path d="M 52,70 L 62,35 L 72,70 L 65,70 L 63,58 L 57,58 L 55,70 Z M 58,52 L 62,52 L 61,43 Z" fill="url(#greenGrad)" />
+
+  <!-- Dynamic Upward Growth Arrow (Emerald Green with Drop Shadow) -->
   <g filter="url(#dropShadow)">
-    <path d="M 38,75 L 65,22 L 58,18 L 76,14 L 78,32 L 71,28 L 44,75 Z" fill="url(#greenGrad)" />
+    <path d="M 40,70 L 66,24 L 60,21 L 76,14 L 80,30 L 74,27 L 48,70 Z" fill="url(#greenGrad)" />
   </g>
 </svg>
