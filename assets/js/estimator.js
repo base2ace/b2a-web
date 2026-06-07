@@ -287,17 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="invoice-header d-flex justify-content-between align-items-start border-bottom pb-4 mb-4">
                         <div>
                             <div class="invoice-logo d-flex align-items-center mb-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="45" height="45" style="vertical-align: middle; margin-right: 10px;">
-                                    <defs>
-                                        <linearGradient id="modalLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#00E676" />
-                                            <stop offset="100%" stop-color="#27AE60" />
-                                        </linearGradient>
-                                    </defs>
-                                    <path d="M20,50 L50,20 L80,50 L50,80 Z" fill="none" stroke="url(#modalLogoGrad)" stroke-width="8" stroke-linejoin="round" />
-                                    <circle cx="50" cy="50" r="12" fill="#00E676" />
-                                    <path d="M50,12 L50,28 M50,72 L50,88 M12,50 L28,50 M72,50 L88,50" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
-                                </svg>
+                                <img src="assets/img/logo.svg" alt="Base2ace Logo" style="height: 45px; width: 45px; margin-right: 10px;">
                                 <span class="fs-3 fw-bold text-white invoice-brand">Base2ace Technologies</span>
                             </div>
                             <p class="text-white-50 small mb-0">ISO 9001:2015 Certified Company</p>
