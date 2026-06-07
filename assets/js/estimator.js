@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="invoice-header d-flex justify-content-between align-items-start border-bottom pb-4 mb-4">
                         <div>
                             <div class="invoice-logo d-flex align-items-center mb-2">
-                                <img src="assets/img/logo.svg" alt="Base2ace Logo" style="height: 45px; width: 45px; margin-right: 10px;">
+                                <img src="assets/img/logo.png" alt="Base2ace Logo" style="height: 45px; width: 45px; margin-right: 10px;">
                                 <span class="fs-3 fw-bold text-white invoice-brand">Base2ace Technologies</span>
                             </div>
                             <p class="text-white-50 small mb-0">ISO 9001:2015 Certified Company</p>
