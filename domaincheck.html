@@ -245,25 +245,29 @@
                     </div>
                 `;
 
-                const apiKey = 'at_joeZYqCCdHEHFB1qNMF4xKMuOC2X8';
-                const apiEndpoint = 'https://domain-availability.whoisxmlapi.com/api/v1';
-
                 try {
                     const promises = selectedExtensions.map(async (ext) => {
                         const fullDomain = baseDomain + ext;
-                        const url = `${apiEndpoint}?apiKey=${apiKey}&domainName=${fullDomain}&outputFormat=json`;
+                        const url = `https://rdap.org/domain/${fullDomain}`;
                         try {
                             const response = await fetch(url);
-                            if (!response.ok) {
+                            if (response.status === 404) {
+                                // HTTP 404 indicates the domain is not registered (Available)
+                                return {
+                                    domain: fullDomain,
+                                    available: true,
+                                    success: true
+                                };
+                            } else if (response.status === 200) {
+                                // HTTP 200 indicates the domain is registered (Taken)
+                                return {
+                                    domain: fullDomain,
+                                    available: false,
+                                    success: true
+                                };
+                            } else {
                                 throw new Error(`HTTP error! status: ${response.status}`);
                             }
-                            const data = await response.json();
-                            const isAvailable = data && data.DomainInfo && data.DomainInfo.domainAvailability && data.DomainInfo.domainAvailability.toUpperCase() === 'AVAILABLE';
-                            return {
-                                domain: fullDomain,
-                                available: isAvailable,
-                                success: true
-                            };
                         } catch (err) {
                             console.error(`Error checking ${fullDomain}:`, err);
                             return {
