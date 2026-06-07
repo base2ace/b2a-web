@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Digital Utilities & Project Tools - Base2ace Technologies</title>
+  <meta name="description" content="Access the Base2ace Technologies suite of digital utilities. Estimate your website design costs with or without GST, plan bulk projects, or search domain name availability.">
+  <meta name="keywords" content="Base2ace Tools, Cost Estimator, Domain Checker, Website Cost Calculator, GST Quote Generator, Web Utilities">
+
+  <link href="assets/img/favicon.ico" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --background-color: #122C3D;
+      --default-color: #E0E6EB;
+      --heading-color: #FFFFFF;
+      --accent-color: #00E676;
+      --accent-secondary: #27AE60;
+      --surface-color: #1D4057;
+      --contrast-color: #FFFFFF;
+    }
+
+    body {
+      background: radial-gradient(circle at top right, #1a3c54, var(--background-color) 70%);
+      color: var(--default-color);
+      font-family: 'Raleway', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Header Styling */
+    .header {
+      background: rgba(18, 44, 61, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .header-brand {
+      color: var(--heading-color);
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-brand:hover {
+      color: var(--heading-color);
+    }
+
+    .back-btn {
+      color: var(--default-color);
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--accent-color);
+    }
+
+    /* Main Container */
+    .dashboard-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF 30%, #a4cbd6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .dashboard-subtitle {
+      font-size: 1.1rem;
+      color: #92abbc;
+      margin-bottom: 50px;
+      text-align: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Card Styling */
+    .tool-card {
+      background: rgba(29, 64, 87, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 30px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 230, 118, 0.3);
+      box-shadow: 0 15px 35px rgba(0, 230, 118, 0.08);
+      background: rgba(29, 64, 87, 0.6);
+    }
+
+    .tool-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon-wrapper {
+      width: 65px;
+      height: 65px;
+      border-radius: 15px;
+      background: rgba(0, 230, 118, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      border: 1px solid rgba(0, 230, 118, 0.15);
+      color: var(--accent-color);
+      transition: all 0.3s ease;
+    }
+
+    .tool-card:hover .card-icon-wrapper {
+      background: var(--accent-color);
+      color: var(--background-color);
+      box-shadow: 0 0 15px rgba(0, 230, 118, 0.4);
+      border-color: var(--accent-color);
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 15px;
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      color: #b0c4d1;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .btn-launch {
+      background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+      color: #FFFFFF;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 24px;
+      width: 100%;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1.2px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-launch:hover {
+      background: linear-gradient(135deg, #00ff80, #2ece71);
+      color: #FFFFFF;
+      box-shadow: 0 5px 20px rgba(0, 230, 118, 0.3);
+      transform: translateY(-1px);
+    }
+
+    /* Section divider text */
+    .section-divider {
+      color: #92abbc;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 40px 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Footer styling */
+    .footer {
+      background: rgba(12, 30, 43, 0.9);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 25px 0;
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="index.html" class="header-brand" id="logoLink">
+        <span>Base2ace</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32" style="vertical-align: middle;">
+          <defs>
+            <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00E676" />
+              <stop offset="100%" stop-color="#27AE60" />
+            </linearGradient>
+          </defs>
+          <path d="M20,50 L50,20 L80,50 L50,80 Z" fill="none" stroke="url(#navLogoGrad)" stroke-width="8" stroke-linejoin="round" />
+          <circle cx="50" cy="50" r="12" fill="#00E676" />
+          <path d="M50,12 L50,28 M50,72 L50,88 M12,50 L28,50 M72,50 L88,50" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+        </svg>
+      </a>
+      <a href="index.html" class="back-btn" id="backToHomeBtn">
+        <i class="bi bi-arrow-left"></i> Back to Homepage
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Dashboard Contents -->
+  <main class="container my-5 flex-grow-1">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h1 class="dashboard-title">Project & Utility Dashboard</h1>
+        <p class="dashboard-subtitle">Explore our interactive client utilities. Generate custom estimates, apply coupon codes, download quote sheets, or check domain availability instantly.</p>
+
+        <!-- Tools section: Domain checker -->
+        <div class="section-divider">Domain Utilities</div>
+        <div class="row mb-5">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <div class="tool-card" id="cardDomainChecker">
+              <div>
+                <div class="card-icon-wrapper">
+                  <i class="bi bi-globe2 fs-3"></i>
+                </div>
+                <h2 class="card-title">Domain Availability Checker</h2>
+                <p class="card-desc">Check domain name availability across top extensions (.com, .in, .net, etc.) in real time. Runs completely in the browser for instant results.</p>
+              </div>
+              <a href="domaincheck.html" class="btn btn-launch" id="btnLaunchDomain">
+                <span>Launch Checker</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools section: Estimators -->
+        <div class="section-divider">Website Cost Estimators</div>
+        <div class="row">
+          <!-- Tool 1: Estimate Standard -->
+          <div class="col-md-6 mb-4">
+            <div class="tool-card" id="cardEstimateStd">
+              <div>
+                <div class="card-icon-wrapper">
+                  <i class="bi bi-calculator fs-3"></i>
+                </div>
+                <h2 class="card-title">Standard Cost Estimator</h2>
+                <p class="card-desc">Plan single website quotes based on design, pages, custom integrations, user log-in systems, and support contracts.</p>
+              </div>
+              <a href="estimate.html" class="btn btn-launch" id="btnLaunchEstStd">
+                <span>Launch Standard</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tool 2: Estimate GST -->
+          <div class="col-md-6 mb-4">
+            <div class="tool-card" id="cardEstimateGst">
+              <div>
+                <div class="card-icon-wrapper">
+                  <i class="bi bi-calculator-fill fs-3"></i>
+                </div>
+                <h2 class="card-title">Cost Estimator (with GST)</h2>
+                <p class="card-desc">Run detailed single website design cost calculations including official 18% Indian GST taxation values.</p>
+              </div>
+              <a href="estimate-gst.html" class="btn btn-launch" id="btnLaunchEstGst">
+                <span>Launch with GST</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tool 3: Estimates Standard Bulk -->
+          <div class="col-md-6 mb-4">
+            <div class="tool-card" id="cardEstimatesStd">
+              <div>
+                <div class="card-icon-wrapper">
+                  <i class="bi bi-card-checklist fs-3"></i>
+                </div>
+                <h2 class="card-title">Bulk Estimator</h2>
+                <p class="card-desc">Create custom multi-site or large-scale product quotes with advanced package selection and detailed invoice logs.</p>
+              </div>
+              <a href="estimates.html" class="btn btn-launch" id="btnLaunchEstsStd">
+                <span>Launch Bulk</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tool 4: Estimates GST Bulk -->
+          <div class="col-md-6 mb-4">
+            <div class="tool-card" id="cardEstimatesGst">
+              <div>
+                <div class="card-icon-wrapper">
+                  <i class="bi bi-file-earmark-ruled fs-3"></i>
+                </div>
+                <h2 class="card-title">Bulk Estimator (with GST)</h2>
+                <p class="card-desc">Generate premium invoice quotes for multiple projects complete with automatic 18% GST and terms & conditions layout.</p>
+              </div>
+              <a href="estimates-gst.html" class="btn btn-launch" id="btnLaunchEstsGst">
+                <span>Launch Bulk GST</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer mt-auto">
+    <div class="container text-center text-white-50">
+      <p class="mb-0 small">&copy; 2026 Base2ace Technologies. All Rights Reserved. ISO 9001:2015 Certified.</p>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+</body>
+
+</html>

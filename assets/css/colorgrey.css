@@ -1,0 +1,33 @@
+/* Global Colors */
+:root {
+  --background-color: #122C3D; /* Deep Teal-Blue - A rich, vibrant dark background */
+  --default-color: #E0E6EB; /* Soft Off-White - Excellent readability on dark backgrounds */
+  --heading-color: #FFFFFF; /* Pure White - For prominent headings and titles */
+  --accent-color: #27AE60; /* Vivid Emerald Green - Highly saturated and energetic, symbolizing growth */
+  --surface-color: #1D4057; /* Muted Teal-Blue - For cards, boxes, providing distinct separation */
+  --contrast-color: #FFFFFF; /* Pure White - Ensures readability on accent and heading colors */
+}
+
+/* Nav Menu Colors */
+:root {
+  --nav-color: #E0E6EB; /* Soft Off-White - Default link color */
+  --nav-hover-color: #00E676; /* Vivid Emerald Green - Vibrant hover and active link color */
+  --nav-mobile-background-color: #173449; /* Darker Teal-Blue - For mobile navigation menu background */
+  --nav-dropdown-background-color: #173449; /* Darker Teal-Blue - For dropdown backgrounds */
+  --nav-dropdown-color: #E0E6EB; /* Soft Off-White - Dropdown link color */
+  --nav-dropdown-hover-color: #00E676; /* Vivid Emerald Green - Dropdown hover color */
+}
+
+/* Color Presets */
+.light-background { /* For sections that are slightly lighter within this vibrant dark theme */
+  --background-color: #1C415D;
+  --surface-color: #265275;
+}
+
+.dark-background { /* For even deeper, more intense dark sections */
+  --background-color: #0B1F2C;
+  --default-color: #FFFFFF;
+  --heading-color: #FFFFFF;
+  --surface-color: #14354D;
+  --contrast-color: #FFFFFF;
+}

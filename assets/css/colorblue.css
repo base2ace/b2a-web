@@ -1,0 +1,33 @@
+/* Global Colors */
+:root {
+  --background-color: #0F1C2D; /* Deep Blue-Grey - Professional and calming base */
+  --default-color: #E0E6EB; /* Soft Off-White - Excellent readability on dark backgrounds */
+  --heading-color: #FFFFFF; /* Pure White - For prominent headings and titles */
+  --accent-color: #4CAF50; /* Vibrant Green - Represents growth, sprouts, and calls to action */
+  --surface-color: #1B2D45; /* Medium Blue-Grey - For cards, boxes, and distinct elements */
+  --contrast-color: #FFFFFF; /* Pure White - Ensures readability on accent/heading colors */
+}
+
+/* Nav Menu Colors */
+:root {
+  --nav-color: #E0E6EB; /* Soft Off-White - Default link color */
+  --nav-hover-color: #4CAF50; /* Vibrant Green - Hover and active link color */
+  --nav-mobile-background-color: #172A3B; /* Slightly darker blue-grey for mobile menu background */
+  --nav-dropdown-background-color: #172A3B; /* Slightly darker blue-grey for dropdown backgrounds */
+  --nav-dropdown-color: #E0E6EB; /* Soft Off-White - Dropdown link color */
+  --nav-dropdown-hover-color: #4CAF50; /* Vibrant Green - Dropdown hover color */
+}
+
+/* Color Presets */
+.light-background { /* For sections that need to be a bit lighter than the main background */
+  --background-color: #1A283C;
+  --surface-color: #25364D;
+}
+
+.dark-background { /* For even deeper, more dramatic dark sections */
+  --background-color: #08101A;
+  --default-color: #FFFFFF;
+  --heading-color: #FFFFFF;
+  --surface-color: #151E2B;
+  --contrast-color: #FFFFFF;
+}

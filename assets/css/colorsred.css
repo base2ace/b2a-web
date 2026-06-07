@@ -1,0 +1,31 @@
+/* Global Colors - Dramatic Shift */
+:root {
+  --background-color: #0A0E17;  /* Deeper near-black base */
+  --default-color: #D8E1FF;     /* Electric blue-white (vibrant!) */
+  --heading-color: #FFFFFF;      /* Pure white for punch */
+  --accent-color: #FF4D4D;      /* Vivid red (commands attention) */
+  --surface-color: #131A2A;      /* Rich navy (not flat gray) */
+  --contrast-color: #FFFFFF;     /* White pops on red */
+  --glow-effect: 0 0 15px rgba(255, 77, 77, 0.7); /* Optional glow */
+}
+
+/* Nav Menu - Now Contrasts Clearly */
+:root {
+  --nav-color: #D8E1FF;          /* Bright blue-white */
+  --nav-hover-color: #FF4D4D;    /* Hits with red on hover */
+  --nav-mobile-background-color: #131A2A;  /* Matches surface */
+  --nav-dropdown-background-color: #0A0E17; /* Darker than mobile */
+  --nav-dropdown-hover-color: #FF4D4D;     /* Consistent accent */
+}
+
+/* Presets - Now More Distinct */
+.light-background {  /* Actually mid-tone now */
+  --background-color: #1D2638;
+  --surface-color: #2A3650;  /* Noticeably lighter */
+}
+
+.dark-background {   /* True "dark mode" */
+  --background-color: #05070C;  /* Near-black */
+  --default-color: #FFFFFF;
+  --surface-color: #0A0E17;    /* Matches root bg */
+}

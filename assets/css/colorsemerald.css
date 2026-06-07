@@ -1,0 +1,31 @@
+/* Global Colors */
+:root {
+  --background-color: #0C1912;  /* Deep Rainforest */
+  --default-color: #DBF1E6;     /* Mist Green */
+  --heading-color: #FFFFFF;
+  --accent-color: #2ECC71;     /* Vibrant Emerald */
+  --secondary-accent: #F39C12;  /* Amber (like sunlight through leaves) */
+  --surface-color: #15261D;     /* Forest Floor */
+}
+
+/* Nav Menu Colors */
+:root {
+  --nav-color: #E0EFE0;         /* Fresh Leaf White */
+  --nav-hover-color: #3BD278;   /* Vibrant Growth Green */
+  --nav-mobile-background-color: #1A221D;  /* Rich Moss */
+  --nav-dropdown-background-color: #0D130F; /* Deep Forest */
+  --nav-dropdown-color: #E0EFE0;
+  --nav-dropdown-hover-color: #FFC145;     /* Golden Sun for contrast */
+}
+
+/* Color Presets */
+.light-background {  /* For content sections */
+  --background-color: #1E2A22;
+  --surface-color: #2A3B30;
+}
+
+.dark-background {   /* For immersive areas */
+  --background-color: #080C09;
+  --default-color: #FFFFFF;
+  --surface-color: #0D130F;
+}

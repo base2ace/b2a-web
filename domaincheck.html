@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Availability Checker - Base2ace Technologies</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for status icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Custom CSS Import -->
+    <style>
+        @import url("colorgrey.css");
+
+        /* Global Colors (fallback if colorgrey.css is not found or for specific overrides) */
+        :root {
+            --background-color: #122C3D;
+            --default-color: #E0E6EB;
+            --heading-color: #FFFFFF;
+            --accent-color: #27AE60;
+            --surface-color: #1D4057;
+            --contrast-color: #FFFFFF;
+        }
+
+        /* Nav Menu Colors (fallback) */
+        :root {
+            --nav-color: #E0E6EB;
+            --nav-hover-color: #00E676;
+            --nav-mobile-background-color: #173449;
+            --nav-dropdown-background-color: #173449;
+            --nav-dropdown-color: #E0E6EB;
+            --nav-dropdown-hover-color: #00E676;
+        }
+
+        /* Color Presets (fallback) */
+        .light-background {
+            --background-color: #1C415D;
+            --surface-color: #265275;
+        }
+
+        .dark-background {
+            --background-color: #0B1F2C;
+            --default-color: #FFFFFF;
+            --heading-color: #FFFFFF;
+            --surface-color: #14354D;
+            --contrast-color: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--default-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--heading-color);
+        }
+
+        .card {
+            background-color: var(--surface-color);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            color: var(--default-color);
+        }
+
+        .form-control, .form-select {
+            background-color: var(--background-color);
+            color: var(--default-color);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .form-control:focus, .form-select:focus {
+            background-color: var(--background-color);
+            color: var(--default-color);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(39, 174, 96, 0.25); /* Accent color with transparency */
+        }
+        .form-control::placeholder {
+            color: rgba(224, 230, 235, 0.6);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--contrast-color);
+        }
+        .btn-primary:hover {
+            background-color: #00E676; /* Slightly brighter green */
+            border-color: #00E676;
+        }
+
+        .domain-result {
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .domain-result.available {
+            background-color: rgba(39, 174, 96, 0.2); /* Accent color light */
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+        .domain-result.unavailable {
+            background-color: rgba(220, 53, 69, 0.2); /* Bootstrap danger color light */
+            border: 1px solid #dc3545; /* Bootstrap danger color */
+            color: #dc3545;
+        }
+        .domain-result .status-icon {
+            font-size: 1.2rem;
+        }
+        .domain-result .domain-name {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="text-start mb-4">
+            <a href="tools.html" class="btn btn-outline-secondary btn-sm" style="border-color: rgba(255,255,255,0.15); color: #E0E6EB;">&larr; Back to Tools Dashboard</a>
+        </div>
+        <header class="text-center mb-5">
+            <h1 class="display-4 fw-bold">Base2ace Technologies</h1>
+            <p></p>
+            <p class="lead text-default-color">Domain Availability Checker</p>
+        </header>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-9">
+                <div class="card p-4 shadow-lg">
+                    <h2 class="h4 mb-4 text-center">Find Your Perfect Domain</h2>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="domainInput" placeholder="Enter domain name (e.g., yourbusiness)">
+                        <button class="btn btn-primary" type="button" id="checkDomainBtn">Check Availability</button>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="h6 mb-2">Check these extensions:</h5>
+                        <div class="row g-2">
+                            <div class="col-6 col-sm-4 col-md-3">
+                                <div class="form-check">
+                                    <input class="form-check-input extension-checkbox" type="checkbox" value=".com" id="extCom" checked>
+                                    <label class="form-check-label" for="extCom">.com</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3">
+                                <div class="form-check">
+                                    <input class="form-check-input extension-checkbox" type="checkbox" value=".in" id="extIn" checked>
+                                    <label class="form-check-label" for="extIn">.in</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3">
+                                <div class="form-check">
+                                    <input class="form-check-input extension-checkbox" type="checkbox" value=".co.in" id="extCoIn" checked>
+                                    <label class="form-check-label" for="extCoIn">.co.in</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3">
+                                <div class="form-check">
+                                    <input class="form-check-input extension-checkbox" type="checkbox" value=".net" id="extNet">
+                                    <label class="form-check-label" for="extNet">.net</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3">
+                                <div class="form-check">
+                                    <input class="form-check-input extension-checkbox" type="checkbox" value=".org" id="extOrg">
+                                    <label class="form-check-label" for="extOrg">.org</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3">
+                                <div class="form-check">
+                                    <input class="form-check-input extension-checkbox" type="checkbox" value=".info" id="extInfo">
+                                    <label class="form-check-label" for="extInfo">.info</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3">
+                                <div class="form-check">
+                                    <input class="form-check-input extension-checkbox" type="checkbox" value=".biz" id="extBiz">
+                                    <label class="form-check-label" for="extBiz">.biz</label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3">
+                                <div class="form-check">
+                                    <input class="form-check-input extension-checkbox" type="checkbox" value=".online" id="extOnline">
+                                    <label class="form-check-label" for="extOnline">.online</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="resultsContainer" class="mt-4">
+                        <!-- Results will be dynamically inserted here -->
+                        <div class="alert alert-info text-center" role="alert">
+                            Enter a domain name above and click "Check Availability" to see results.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" xintegrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" xintegrity="sha384-0pUGZvbkm6XF6gxjEnlco4jF7xU+6qLqA4Nqch5Hv9z7fK8fFfP3E8G5P3E2D8F" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const domainInput = document.getElementById('domainInput');
+            const checkDomainBtn = document.getElementById('checkDomainBtn');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const extensionCheckboxes = document.querySelectorAll('.extension-checkbox');
+
+            checkDomainBtn.addEventListener('click', async function() {
+                const baseDomain = domainInput.value.trim();
+                const selectedExtensions = Array.from(extensionCheckboxes)
+                                                .filter(checkbox => checkbox.checked)
+                                                .map(checkbox => checkbox.value);
+
+                if (baseDomain === '') {
+                    resultsContainer.innerHTML = `
+                        <div class="alert alert-warning text-center" role="alert">
+                            Please enter a domain name to check.
+                        </div>
+                    `;
+                    return;
+                }
+
+                if (selectedExtensions.length === 0) {
+                    resultsContainer.innerHTML = `
+                        <div class="alert alert-warning text-center" role="alert">
+                            Please select at least one domain extension to check.
+                        </div>
+                    `;
+                    return;
+                }
+
+                resultsContainer.innerHTML = `
+                    <div class="text-center text-default-color">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Checking availability for "${baseDomain}"...</p>
+                    </div>
+                `;
+
+                const apiKey = 'at_2ES672IrsF9ORz2BsKSaR8NxwxfkZ';
+                const apiEndpoint = 'https://domain-availability.whoisxmlapi.com/api/v1';
+
+                try {
+                    const promises = selectedExtensions.map(async (ext) => {
+                        const fullDomain = baseDomain + ext;
+                        const url = `${apiEndpoint}?apiKey=${apiKey}&domainName=${fullDomain}&outputFormat=json`;
+                        try {
+                            const response = await fetch(url);
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! status: ${response.status}`);
+                            }
+                            const data = await response.json();
+                            const isAvailable = data && data.DomainInfo && data.DomainInfo.domainAvailability && data.DomainInfo.domainAvailability.toUpperCase() === 'AVAILABLE';
+                            return {
+                                domain: fullDomain,
+                                available: isAvailable,
+                                success: true
+                            };
+                        } catch (err) {
+                            console.error(`Error checking ${fullDomain}:`, err);
+                            return {
+                                domain: fullDomain,
+                                available: false,
+                                success: false
+                            };
+                        }
+                    });
+
+                    const results = await Promise.all(promises);
+                    let resultsHtml = '';
+
+                    results.forEach(result => {
+                        if (!result.success) {
+                            resultsHtml += `
+                                <div class="domain-result unavailable">
+                                    <span class="domain-name">${result.domain}</span>
+                                    <span>Error checking <i class="fas fa-exclamation-circle status-icon"></i></span>
+                                </div>
+                            `;
+                        } else if (result.available) {
+                            resultsHtml += `
+                                <div class="domain-result available">
+                                    <span class="domain-name">${result.domain}</span>
+                                    <span>Available <i class="fas fa-check-circle status-icon"></i></span>
+                                </div>
+                            `;
+                        } else {
+                            resultsHtml += `
+                                <div class="domain-result unavailable">
+                                    <span class="domain-name">${result.domain}</span>
+                                    <span>Taken <i class="fas fa-times-circle status-icon"></i></span>
+                                </div>
+                            `;
+                        }
+                    });
+
+                    resultsContainer.innerHTML = resultsHtml;
+
+                } catch (error) {
+                    console.error('Error checking domain availability:', error);
+                    resultsContainer.innerHTML = `
+                        <div class="alert alert-danger text-center" role="alert">
+                            An error occurred while checking domain availability. Please try again later.
+                        </div>
+                    `;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

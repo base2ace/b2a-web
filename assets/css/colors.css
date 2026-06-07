@@ -1,0 +1,30 @@
+/* Global Colors */
+:root {
+  --background-color: #1A1426;  /* Royal Night (deep purple) */
+  --default-color: #EDE2FF;     /* Lavender Mist */
+  --heading-color: #FFFFFF;
+  --accent-color: #A5E36B;     /* Young Shoot (fresh green) */
+  --secondary-accent: #FF8F7B;  /* Coral Blush */
+  --surface-color: #241B33;     /* Amethyst Shadow */
+}
+/* Nav Menu Colors */
+:root {
+  --nav-color: #E0EFE0;         /* Fresh Leaf White */
+  --nav-hover-color: #3BD278;   /* Vibrant Growth Green */
+  --nav-mobile-background-color: #1A221D;  /* Rich Moss */
+  --nav-dropdown-background-color: #0D130F; /* Deep Forest */
+  --nav-dropdown-color: #E0EFE0;
+  --nav-dropdown-hover-color: #FFC145;     /* Golden Sun for contrast */
+}
+
+/* Color Presets */
+.light-background {  /* For content sections */
+  --background-color: #1E2A22;
+  --surface-color: #2A3B30;
+}
+
+.dark-background {   /* For immersive areas */
+  --background-color: #080C09;
+  --default-color: #FFFFFF;
+  --surface-color: #0D130F;
+}
