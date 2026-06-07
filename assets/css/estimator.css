@@ -179,3 +179,8 @@
         visibility: hidden !important;
     }
 }
+
+.invoice-logo img {
+    transform: translateY(-3px);
+}
+
