@@ -93,8 +93,10 @@
 
           <div class="col-lg-5" data-aos="zoom-out">
             <div class="visual-content">
-              <div class="fluid-shape">
-                <img src="assets/img/abstract/homepage_hero_option_c.png" alt="Base2ace Technologies Tech and Learning Showcase" class="fluid-img">
+              <div class="fluid-shape hero-slideshow">
+                <img src="assets/img/abstract/homepage_hero_option_c.png" alt="Base2ace Technologies Tech and Learning Showcase" class="fluid-img active">
+                <img src="assets/img/abstract/homepage_hero_option_a.png" alt="Base2ace Technologies Tech and Learning Showcase" class="fluid-img">
+                <img src="assets/img/abstract/homepage_hero_option_b.png" alt="Base2ace Technologies Tech and Learning Showcase" class="fluid-img">
               </div>
 
               <div class="stats-card">
@@ -1528,6 +1530,21 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
   <script src="assets/js/main.js"></script>
+
+  <!-- Hero Slideshow Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('.hero-slideshow .fluid-img');
+      if (slides.length > 0) {
+        let currentSlide = 0;
+        setInterval(() => {
+          slides[currentSlide].classList.remove('active');
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add('active');
+        }, 5000); // Crossfade every 5 seconds
+      }
+    });
+  </script>
 
   <!-- Contact Widget -->
   <div class="contact-widget">
