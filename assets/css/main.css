@@ -917,6 +917,7 @@ section,
 .hero .fluid-shape .fluid-img {
   width: 100%;
   height: auto;
+  border-radius: 20px;
   animation: float 6s ease-in-out infinite;
 }
 
